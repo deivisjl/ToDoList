@@ -79,6 +79,18 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-12">
+                <span data-bind="visible: ToDoList.tasks().length > 0">
+                    <strong>Total: <span data-bind="text:ToDoList.tasks().length"></span> </strong>
+                    <strong>Completed: <span data-bind="text:ToDoList.numOfCompletedTasks()"></span></strong>
+                </span>
+                <span data-bind="visible: ToDoList.tasks().length == 0">
+                    <strong>No tasks in my list</strong>
+                </span>
+            </div>
+        </div>
+
     </div>
 </div>
 </body>

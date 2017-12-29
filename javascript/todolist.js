@@ -66,6 +66,16 @@ var ToDoList = function () {
             });
     };
 
+    /* observable to compute number of completed tasks */
+    var numOfCompletedTasks = ko.computed(function() {
+        var completedTasks = ko.utils.arrayFilter(tasks(), function(task)
+        {
+            return task.status() == 'complete';
+        });
+        return completedTasks.length;
+    });
+
+
 
     var init = function () {
         /* add code to initialize this module */
@@ -82,7 +92,8 @@ var ToDoList = function () {
         deleteTask: deleteTask,
         completeTask: completeTask,
         sortByPriority: sortByPriority,
-        sortByName: sortByName
+        sortByName: sortByName,
+        numOfCompletedTasks: numOfCompletedTasks
     };
 
 
